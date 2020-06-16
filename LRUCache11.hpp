@@ -143,7 +143,7 @@ class Cache {
     Guard g(lock_);
     const auto iter = cache_.find(k);
     if (iter == cache_.end()) {
-      throw KeyNotFound();
+      return NULL;
     }
     keys_.splice(keys_.begin(), keys_, iter->second);
     return iter->second->value;
